@@ -15,8 +15,7 @@ int parse_uri(char *uri, char *filename, char *cgiargs);
 void serve_static(int fd, char *filename, int filesize);
 void get_filetype(char *filename, char *filetype);
 void serve_dynamic(int fd, char *filename, char *cgiargs);
-void clienterror(int fd, char *cause, char *errnum, char *shortmsg,
-                 char *longmsg);
+void clienterror(int fd, char *cause, char *errnum, char *shortmsg, char *longmsg);
 
 int main(int argc, char **argv) {
   int listenfd, connfd;
@@ -30,12 +29,14 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
+  printf("Tiny server initiated\n\n");
+
   listenfd = Open_listenfd(argv[1]);    // start listening
   while (1) {                           // loop forever
     clientlen = sizeof(clientaddr);     
     connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);  // line:netp:tiny:accept
     Getnameinfo((SA *)&clientaddr, clientlen, hostname, MAXLINE, port, MAXLINE, 0);
-    printf("Accepted connection from (%s, %s)\n", hostname, port);
+    printf("Accepted connection from (%s, %s)\n\n", hostname, port);
     doit(connfd);   // line:netp:tiny:doit
     Close(connfd);  // line:netp:tiny:close
   }
