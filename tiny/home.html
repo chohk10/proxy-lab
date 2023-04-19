@@ -1,7 +1,35 @@
 <html>
-<head><title>test</title></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>TINY</title>
+  <!-- <script>
+    // function adder() {
+    //   let n1 = $('#n1').val();
+    //   let n2 = $('#n2').val();
+    //   console.log(n1, n2);
+    //   location.href = "http://52.79.247.94:8000/cgi-bin/adder?" + n1 + "&" + n2;
+    // }
+  </script> -->
+</head>
 <body> 
-<img align="middle" src="godzilla.gif">
-Dave O'Hallaron
+<!-- <img align="middle" src="godzilla.gif">
+Dave O'Hallaron -->
+<video width="320" height="240" controls>
+  <source src="./movie.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<h1>Adder</h1>
+<form method="GET" action="/cgi-bin/adder">
+  <label for="n1">First number:</label>
+  <input type="text" id="n1" name="n1"><br><br>
+  <label for="n2">Second number:</label>
+  <input type="text" id="n2" name="n2"><br><br>
+  <button type="submit" id="Submit">Add!</button>
+  <!-- <button id="Submit" onclick="adder()">Submit</button> -->
+</form>
+
 </body>
 </html>
